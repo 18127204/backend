@@ -18,7 +18,7 @@ router.get('/api/ShowGradeStructure/:link', function (req, res, next) {
         }
         let link = req.params.link;
         let sql = `SELECT Ass.name,Ass.grade FROM classes CL INNER JOIN assignment Ass ON Ass.classId = CL.id WHERE CL.link=?
-        ORDER BY ASS.rank ASC
+        ORDER BY Ass.rank ASC
         `;
         pool.query(sql, [link], (error, result) => {
             if (error) {
