@@ -1,38 +1,20 @@
-const express = require('express');
-const jwt = require('jsonwebtoken');
-const router = express.Router();
-const passport = require('./index');
+var express=require('express');
+var router=express.Router();
+var passport=require('./index');
+var jwt = require('jsonwebtoken');
 
-/* GET home page. */
-router.post('/', passport.authenticate('local', {session: false}), function(req, res, next) {
-  if (req.user.message) {
-    return res.json(req.user);
-  }
-  if (req.user.type) {
+router.post('/',passport.authenticate('local',{session:false}),(req, res, next)=>{
     res.json({
-      user: req.user,
-      type: 'admin',
-      token: jwt.sign({
-          id: req.user.id,
-          username: req.user.username,
-          studentID: req.user.studentID,
-          email: req.user.email
-      }, 'secret', {
-          expiresIn: '1h'
-      })
-  });
-  }
-  else res.json({
-      user: req.user,
-      token: jwt.sign({
-          id: req.user.id,
-          username: req.user.username,
-          studentID: req.user.studentID,
-          email: req.user.email
-      }, 'secret', {
-          expiresIn: '1h'
-      })
-  });
+        success:true,
+        content:req.user,
+        tokenAccess:jwt.sign({
+            id:req.user.id,
+            username:req.user.username,
+            isadmin:req.user.isadmin
+        },
+        'secret',
+        { expiresIn:'5h'})
+    });
 });
 
 module.exports = router;
