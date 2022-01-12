@@ -11,7 +11,6 @@ passport.use(new LocalStrategy(
     {
         usernameField: 'username',
         passwordField: 'password',
-        passReqToCallback: true,
         session:false
 
     },
