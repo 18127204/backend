@@ -14,6 +14,10 @@ var assignmentRouter = require('./routes/Assignment');
 var pointRouter = require('./routes/Point');
 var excelRouter = require('./routes/FileExcel');
 var importExcelRouter=require('./routes/ImportExcel');
+var profileRouter = require('./routes/Profile');
+var authorizationRouter=require('./routes/Authorization');
+var googleSigninRouter = require('./routes/GoogleSignIn');
+var facebookSigninRouter = require('./routes/FacebookSignIn');
 // const classesRouter = require('./api/classes');
 // const accountsRouter = require('./api/accounts');
 // const assignmentRouter = require('./api/assignment');
@@ -43,6 +47,10 @@ app.use('/assignment', assignmentRouter);
 app.use('/point',pointRouter);
 app.use('/fileExcel',excelRouter);
 app.use('/importExcel',importExcelRouter);
+app.use('/profile',profileRouter);
+app.use('/idenRole',authorizationRouter);
+app.use('/google-sign-in',googleSigninRouter);
+app.use('/facebook-sign-in',facebookSigninRouter);
 
 
 // app.use('/classes', passport.authenticate('jwt', {session: false}), classesRouter);
