@@ -37,7 +37,7 @@ router.post('/api', function (req, res, next) {
                                 tokenAccess: jwt.sign({
                                     id:result[0].id,
                                     username:result[0].username
-                                }, process.env.jwt_secret,
+                                }, 'secret',
                                 { expiresIn:'1h'})
                             };
                             

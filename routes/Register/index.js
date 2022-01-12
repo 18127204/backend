@@ -5,8 +5,7 @@ var passport = require('../../modules/passport');
 var { v4: uuidv4 } = require('uuid');
 var nodemailer = require('nodemailer');
 
-require('dotenv').config();
-var URL_FRONTEND=process.env.URL_FRONTEND;
+var URL_FRONTEND='https://btck-grade-manage-fe.herokuapp.com';
 // var URL_BACKEND=process.env.URL_BACKEND;
 /*Create account */
 router.post('/', function (req, res, next) {
