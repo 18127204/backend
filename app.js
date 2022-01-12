@@ -45,23 +45,23 @@ app.use(cors());
 
 app.use(passport.initialize());
 app.use('/login', loginRouter);
-app.use('/classroom', classRoomRouter);
-app.use('/register', registerRouter);
-app.use('/sendEmail', sendEmailRouter);
-app.use('/assignment', assignmentRouter);
-app.use('/point',pointRouter);
-app.use('/fileExcel',excelRouter);
-app.use('/importExcel',importExcelRouter);
-app.use('/profile',profileRouter);
-app.use('/idenRole',authorizationRouter);
-app.use('/google-sign-in',googleSigninRouter);
-app.use('/facebook-sign-in',facebookSigninRouter);
+// app.use('/classroom', classRoomRouter);
+// app.use('/register', registerRouter);
+// app.use('/sendEmail', sendEmailRouter);
+// app.use('/assignment', assignmentRouter);
+// app.use('/point',pointRouter);
+// app.use('/fileExcel',excelRouter);
+// app.use('/importExcel',importExcelRouter);
+// app.use('/profile',profileRouter);
+// app.use('/idenRole',authorizationRouter);
+// app.use('/google-sign-in',googleSigninRouter);
+// app.use('/facebook-sign-in',facebookSigninRouter);
 
-app.use('/gradeReview',gradeReviewRouter);
-app.use('/forgotPassword',forgotPasswordRouter);
-app.use('/admin',adminRouter);
-app.use('/user',userRouter);
-app.use('/notification',noticeRouter);
+// app.use('/gradeReview',gradeReviewRouter);
+// app.use('/forgotPassword',forgotPasswordRouter);
+// app.use('/admin',adminRouter);
+// app.use('/user',userRouter);
+// app.use('/notification',noticeRouter);
 
 
 // app.use('/classes', passport.authenticate('jwt', {session: false}), classesRouter);
