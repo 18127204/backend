@@ -11,6 +11,9 @@ var classRoomRouter = require('./routes/Classroom');
 var registerRouter = require('./routes/Register');
 var sendEmailRouter = require('./routes/SendEmail');
 var assignmentRouter = require('./routes/Assignment');
+var pointRouter = require('./routes/Point');
+var excelRouter = require('./routes/FileExcel');
+var importExcelRouter=require('./routes/ImportExcel');
 // const classesRouter = require('./api/classes');
 // const accountsRouter = require('./api/accounts');
 // const assignmentRouter = require('./api/assignment');
@@ -37,6 +40,9 @@ app.use('/classroom', classRoomRouter);
 app.use('/register', registerRouter);
 app.use('/sendEmail', sendEmailRouter);
 app.use('/assignment', assignmentRouter);
+app.use('/point',pointRouter);
+app.use('/fileExcel',excelRouter);
+app.use('/importExcel',importExcelRouter);
 
 
 // app.use('/classes', passport.authenticate('jwt', {session: false}), classesRouter);
