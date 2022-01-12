@@ -18,6 +18,11 @@ var profileRouter = require('./routes/Profile');
 var authorizationRouter=require('./routes/Authorization');
 var googleSigninRouter = require('./routes/GoogleSignIn');
 var facebookSigninRouter = require('./routes/FacebookSignIn');
+var gradeReviewRouter=require('./routes/GradeReview');
+var forgotPasswordRouter=require('./routes/ForgotPassword');
+var adminRouter = require('./routes/Admin');
+var userRouter =require('./routes/User');
+var noticeRouter=require('./routes/Notification');
 // const classesRouter = require('./api/classes');
 // const accountsRouter = require('./api/accounts');
 // const assignmentRouter = require('./api/assignment');
@@ -51,6 +56,12 @@ app.use('/profile',profileRouter);
 app.use('/idenRole',authorizationRouter);
 app.use('/google-sign-in',googleSigninRouter);
 app.use('/facebook-sign-in',facebookSigninRouter);
+
+app.use('/gradeReview',gradeReviewRouter);
+app.use('/forgotPassword',forgotPasswordRouter);
+app.use('/admin',adminRouter);
+app.use('/user',userRouter);
+app.use('/notification',noticeRouter);
 
 
 // app.use('/classes', passport.authenticate('jwt', {session: false}), classesRouter);
