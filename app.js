@@ -28,7 +28,7 @@ app.use(cookieParser());
 app.use(cors());
 
 // app.use(passport.initialize());
-app.use('/login', loginRouter);
+// app.use('/login', loginRouter);
 
 // app.use('/classes', passport.authenticate('jwt', {session: false}), classesRouter);
 // app.use('/accounts',  accountsRouter);
