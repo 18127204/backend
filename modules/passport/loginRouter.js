@@ -5,7 +5,6 @@ var jwt = require('jsonwebtoken');
 
 router.post('/',passport.authenticate('local',{session:false}),(req, res, next)=>{
     res.json({
-        success:true,
         content:req.user,
         tokenAccess:jwt.sign({
             id:req.user.id,
@@ -13,7 +12,7 @@ router.post('/',passport.authenticate('local',{session:false}),(req, res, next)=
             isadmin:req.user.isadmin
         },
         'secret',
-        { expiresIn:'5h'})
+        { expiresIn:'1h'})
     });
 });
 
