@@ -5,7 +5,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors=require('cors');
 
-// const passport = require('./modules/passport');
+const passport = require('./modules/passport');
 // const loginRouter = require('./modules/passport/loginRouter');
 // const classesRouter = require('./api/classes');
 // const accountsRouter = require('./api/accounts');
@@ -27,7 +27,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(cors());
 
-// app.use(passport.initialize());
+app.use(passport.initialize());
 // app.use('/login', loginRouter);
 
 // app.use('/classes', passport.authenticate('jwt', {session: false}), classesRouter);

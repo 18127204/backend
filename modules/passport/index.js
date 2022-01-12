@@ -4,36 +4,35 @@ var passport = require('passport')
 
 var JwtStrategy = require('passport-jwt').Strategy,
     ExtractJwt = require('passport-jwt').ExtractJwt;
-// var pool = require('../../routes/pool');
+var pool = require('../../routes/pool');
 
 
 passport.use(new LocalStrategy(
-    // {
-    //     usernameField: 'username',
-    //     passwordField: 'password',
-    //     passReqToCallback: true,
-    //     session:false
+    {
+        usernameField: 'username',
+        passwordField: 'password',
+        passReqToCallback: true,
+        session:false
 
-    // },
+    },
     function (req, username, password, done) {
-        // username = req.body.username;
-        // password = req.body.password;
-        // let sqlAccount = `select id,username,isadmin from account where username=? and password =? and emailVerify='' and lockacc=0`;
-        return done(null, false, { message: 'Incorrect username or password.' });
-        // pool.query(sqlAccount, [username,password], (error, result) => {
-        //     if (error) {               
-        //         return done(null, false, { message: 'Incorrect username or password.' });
-        //     }
-        //     else {
-        //         if (result.length) {
-        //             return done(null, result[0]);
-        //         }
-        //         else {
-        //             return done(null, false, { message: 'Incorrect username or password.' });
-        //         }
+        username = req.body.username;
+        password = req.body.password;
+        let sqlAccount = `select id,username,isadmin from account where username=? and password =? and emailVerify='' and lockacc=0`;
+        pool.query(sqlAccount, [username,password], (error, result) => {
+            if (error) {               
+                return done(null, false, { message: 'Incorrect username or password.' });
+            }
+            else {
+                if (result.length) {
+                    return done(null, result[0]);
+                }
+                else {
+                    return done(null, false, { message: 'Incorrect username or password.' });
+                }
 
-        //     }
-        // })
+            }
+        })
     }
 ));
 
