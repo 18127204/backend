@@ -44,7 +44,6 @@ router.get('/api/GetStudentsWithPoint/:link', function (req, res, next) {
                             res.send(error);
                         }
                         if (result.length) {
-                            res.json(result);
                             resultSqlAccount = result;
                             let sqlGetNumberStudent = `SELECT COUNT(ST.mssv) as SL FROM classes CL INNER JOIN student ST 
                         ON CL.id=ST.classId WHERE CL.link=?`; /// bao nhieu thang hoc lop cung link
@@ -54,7 +53,7 @@ router.get('/api/GetStudentsWithPoint/:link', function (req, res, next) {
                                 }
                                 numberStudent = result[0].SL; /// so luong cua result
                                 let sqlGetAllAss = `SELECT ass.id FROM classaccount cla INNER JOIN classes c ON cla.classId=c.id INNER JOIN assignment ass
-                            ON c.id=ass.classId WHERE c.link=? and cla.accountId=? ORDER BY ASS.rank ASC`;
+                            ON c.id=ass.classId WHERE c.link=? and cla.accountId=? ORDER BY ass.rank ASC`;
                                 //lay all assignmen trong link
                                 pool.query(sqlGetAllAss, [link, user.id], (error, result1) => {
                                     if (error) {
@@ -138,7 +137,7 @@ router.get('/api/GetStudentsWithPoint/:link', function (req, res, next) {
                         if (result.length) {
                             resultSqlAccount = result;
                             let sqlGetAllAss = `SELECT ass.id FROM classaccount cla INNER JOIN classes c ON cla.classId=c.id INNER JOIN assignment ass
-                        ON c.id=ass.classId WHERE c.link=? and cla.accountId=? ORDER BY ASS.rank ASC`;
+                        ON c.id=ass.classId WHERE c.link=? and cla.accountId=? ORDER BY Ass.rank ASC`;
                             //lay all assignmen trong link
                             pool.query(sqlGetAllAss, [link, user.id], (error, result1) => {
                                 if (error) {
