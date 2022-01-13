@@ -44,6 +44,7 @@ router.get('/api/GetStudentsWithPoint/:link', function (req, res, next) {
                             res.send(error);
                         }
                         if (result.length) {
+                            res.json(result);
                             resultSqlAccount = result;
                             let sqlGetNumberStudent = `SELECT COUNT(ST.mssv) as SL FROM classes CL INNER JOIN student ST 
                         ON CL.id=ST.classId WHERE CL.link=?`; /// bao nhieu thang hoc lop cung link
